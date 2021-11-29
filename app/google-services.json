@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "553962319980",
+    "firebase_url": "https://sprint4-82663-default-rtdb.firebaseio.com",
+    "project_id": "sprint4-82663",
+    "storage_bucket": "sprint4-82663.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:553962319980:android:7e9cc829f59007dd2ce849",
+        "android_client_info": {
+          "package_name": "com.example.sprint3"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "553962319980-dj2l4mnemo3t09kt5d4evu3ahub4bp73.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCDJuq43oLS0_YB55E8A4V1cOXNAp_FBBc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "553962319980-dj2l4mnemo3t09kt5d4evu3ahub4bp73.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
