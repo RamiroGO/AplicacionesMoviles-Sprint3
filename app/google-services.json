@@ -1,34 +1,34 @@
 {
   "project_info": {
-    "project_number": "553962319980",
-    "firebase_url": "https://sprint4-82663-default-rtdb.firebaseio.com",
-    "project_id": "sprint4-82663",
-    "storage_bucket": "sprint4-82663.appspot.com"
+    "project_number": "889958496215",
+    "firebase_url": "https://firm-foundation-323201-default-rtdb.firebaseio.com",
+    "project_id": "firm-foundation-323201",
+    "storage_bucket": "firm-foundation-323201.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:553962319980:android:7e9cc829f59007dd2ce849",
+        "mobilesdk_app_id": "1:889958496215:android:cdd39f4f293f256fe6bd92",
         "android_client_info": {
-          "package_name": "com.example.sprint3"
+          "package_name": "com.example.establecimientos"
         }
       },
       "oauth_client": [
         {
-          "client_id": "553962319980-dj2l4mnemo3t09kt5d4evu3ahub4bp73.apps.googleusercontent.com",
+          "client_id": "889958496215-rk2hc9qh19prddn8ucpo7lt75598unq6.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCDJuq43oLS0_YB55E8A4V1cOXNAp_FBBc"
+          "current_key": "AIzaSyDXnbzlDu98bScQbXI718Ph71GuxUye0cE"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "553962319980-dj2l4mnemo3t09kt5d4evu3ahub4bp73.apps.googleusercontent.com",
+              "client_id": "889958496215-rk2hc9qh19prddn8ucpo7lt75598unq6.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

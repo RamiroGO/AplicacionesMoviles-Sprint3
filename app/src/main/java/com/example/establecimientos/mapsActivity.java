@@ -6,7 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-public class mapasActivity extends AppCompatActivity {
+public class mapsActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -14,7 +14,7 @@ public class mapasActivity extends AppCompatActivity {
         setContentView(R.layout.activity_mapas);
     }
     public void click_gotoListEstablecimientos(View view){
-        Intent siguiente = new Intent(this, list_establecimientoActivity.class);
-        startActivity(siguiente);
+        Intent gotoListEstablecimiento = new Intent(this, listEstablecimientosActivity.class);
+        startActivity(gotoListEstablecimiento);
     }
 }

@@ -11,11 +11,11 @@ public class geolocalizacionActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.geolocations);
+        setContentView(R.layout.activity_geolocations);
     }
 
     public void click_volver(View view){
-        Intent siguiente = new Intent(this, list_establecimientoActivity.class);
+        Intent siguiente = new Intent(this, listEstablecimientosActivity.class);
         startActivity(siguiente);
     }
 }

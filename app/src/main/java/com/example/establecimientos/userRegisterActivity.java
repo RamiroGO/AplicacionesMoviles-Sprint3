@@ -6,19 +6,16 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-public class Menu extends AppCompatActivity {
+public class userRegisterActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_menu);
-
-
+        setContentView(R.layout.activity_user_registro);
     }
 
-    public void Ventana_Nuevo (View v) {
-        Intent Nuevo = new Intent(this,Nuevo.class);
-        startActivity(Nuevo);
+    public void click_gotoMain(View view){
+        Intent siguiente = new Intent(this, userLoginActivity.class);
+        startActivity(siguiente);
     }
-
 }

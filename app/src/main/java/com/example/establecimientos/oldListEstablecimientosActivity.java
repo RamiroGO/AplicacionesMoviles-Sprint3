@@ -6,16 +6,16 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-public class list_establecimientoActivity extends AppCompatActivity {
+public class oldListEstablecimientosActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.list_establecimientos);
+        setContentView(R.layout.activity_old_list_establecimientos);
     }
 
     public void click_gotoMain(View view){
-        Intent siguiente = new Intent(this, MainActivity.class);
+        Intent siguiente = new Intent(this, userLoginActivity.class);
         startActivity(siguiente);
     }
 
@@ -25,7 +25,7 @@ public class list_establecimientoActivity extends AppCompatActivity {
     }
 
     public void click_mostrarMapas(View view){
-        Intent siguiente = new Intent(this, mapasActivity.class);
+        Intent siguiente = new Intent(this, mapsActivity.class);
         startActivity(siguiente);
     }
 }
