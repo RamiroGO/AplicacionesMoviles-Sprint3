@@ -10,12 +10,14 @@ public class Establecimiento {
     public String direccion;
     public String telefono;
     public String propietario;
+    public int image;
 
-    public Establecimiento(String nombre, String direccion, String telefono, String propietario) {
+    public Establecimiento(String nombre, String direccion, String telefono, String propietario, int image) {
         this.nombre = nombre;
         this.direccion = direccion;
         this.telefono = telefono;
         this.propietario = propietario;
+        this.image = image;
     }
 
     public Establecimiento(QueryDocumentSnapshot dato) {
@@ -24,5 +26,6 @@ public class Establecimiento {
         this.direccion = dato.getString("direccion");
         this.telefono = dato.getString("telefono");
         this.propietario = dato.getString("propietario");
+        this.image= Integer.parseInt(dato.getString("imagen"));
     }
 }

@@ -43,13 +43,14 @@ public class listEstablecimientosActivity extends AppCompatActivity implements A
         // Evento de Click
         establecimientos_ListView.setOnItemClickListener(this);
 
-        /*
+
         // Insertar datos a la lista
         establecimientoList.add(new Establecimiento(
                 "Efecty",
                 "Casa No 1",
                 "444444",
-                "Jaime"));*/
+                "Jaime",
+                1));
 
         // Configuración de la base de datos
         // Inicializar base de Datos
@@ -67,7 +68,8 @@ public class listEstablecimientosActivity extends AppCompatActivity implements A
                             establecimientoList.add(new Establecimiento(Dato));
                         }
 
-                        // Usar el Adaptador para visualizar en la Lista
+                        // Usar el Adaptador para visualizar la Lista de establecimientos
+                        // en su correspondiente ListView
                         establecimientos_ListView.setAdapter(
                                 new adapter_ListEstablecimientos(
                                         listEstablecimientosActivity.this,

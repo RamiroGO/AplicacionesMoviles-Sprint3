@@ -15,7 +15,17 @@
         android:layout_height="wrap_content"
         android:layout_toRightOf="@id/imageView"/>
     <TextView
-        android:id="@+id/txtEdad"
+        android:id="@+id/txtDireccion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/txtNombre" />
+    <TextView
+        android:id="@+id/txtPropietario"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/txtDireccion"/>
+    <TextView
+        android:id="@+id/txtTelefono"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"/>
