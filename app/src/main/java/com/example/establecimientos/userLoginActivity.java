@@ -58,7 +58,7 @@ public class userLoginActivity extends AppCompatActivity {
                                 "Acceso",
                                 "Error en Acceso", e));
 
-        Intent siguiente = new Intent(this, listEstablecimientosActivity.class);
+        Intent siguiente = new Intent(this, showListEstablecimientosActivity.class);
         startActivity(siguiente);
     }
 }

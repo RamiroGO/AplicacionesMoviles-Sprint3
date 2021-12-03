@@ -15,7 +15,7 @@ public class geolocalizacionActivity extends AppCompatActivity {
     }
 
     public void click_volver(View view){
-        Intent siguiente = new Intent(this, listEstablecimientosActivity.class);
+        Intent siguiente = new Intent(this, showListEstablecimientosActivity.class);
         startActivity(siguiente);
     }
 }

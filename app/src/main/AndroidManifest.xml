@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.establecimientos" >
+    package="com.example.establecimientos">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -10,9 +10,12 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.establecimientos" >
+        android:theme="@style/Theme.establecimientos">
         <activity
-            android:name=".listEstablecimientosActivity"
+            android:name=".editEstablecimientoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".showListEstablecimientosActivity"
             android:exported="false" />
         <activity
             android:name=".mapsActivity"
@@ -25,7 +28,7 @@
             android:exported="false" />
         <activity
             android:name=".userLoginActivity"
-            android:exported="true" >
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -23,11 +23,11 @@ public class adapter_ListEstablecimientos extends ArrayAdapter<Establecimiento> 
     private int resourceLayout;
 
     // Constructores
-    public adapter_ListEstablecimientos(@NonNull Context context, int resource, @NonNull List<Establecimiento> Establecimientos) {
-        super(context, resource, Establecimientos);
-        this.establecimientoList=Establecimientos;
-        this.context=context;
-        this.resourceLayout = resource;
+    public adapter_ListEstablecimientos(@NonNull Context context, int Resource, @NonNull List<Establecimiento> Establecimientos) {
+        super(context, Resource, Establecimientos);
+        this.establecimientoList = Establecimientos;
+        this.context = context;
+        this.resourceLayout = Resource;
     }
 
     // Métodos
@@ -36,14 +36,15 @@ public class adapter_ListEstablecimientos extends ArrayAdapter<Establecimiento> 
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         View _view = convertView;
-        if(_view== null)
-            _view= LayoutInflater.from(context).inflate(resourceLayout, null);
+        if (_view == null)
+            _view = LayoutInflater.from(context).inflate(resourceLayout, null);
 
         // Tomamos los datos del elemento clickeado
         Establecimiento sel_establecimiento = establecimientoList.get(position);
 
         // Cargamos en la View los datos del elemento de la fila
         ImageView imagen = _view.findViewById(R.id.imageView);
+        // Cargar imagen
         imagen.setImageResource(sel_establecimiento.image);
 
         TextView

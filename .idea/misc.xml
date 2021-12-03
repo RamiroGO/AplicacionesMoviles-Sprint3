@@ -3,7 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/10/OneDrive/Programacion/AndroidStudio/AplicacionesMoviles-Sprint3/app/src/main/res/layout/activity_edit_establecimiento.xml" value="0.3375" />
         <entry key="..\:/Users/10/OneDrive/Programacion/AndroidStudio/AplicacionesMoviles-Sprint3/app/src/main/res/layout/activity_establecimientos.xml" value="0.18" />
+        <entry key="..\:/Users/10/OneDrive/Programacion/AndroidStudio/AplicacionesMoviles-Sprint3/app/src/main/res/layout/activity_geolocations.xml" value="0.225" />
         <entry key="..\:/Users/10/OneDrive/Programacion/AndroidStudio/AplicacionesMoviles-Sprint3/app/src/main/res/layout/activity_list_estable.xml" value="0.2" />
         <entry key="..\:/Users/10/OneDrive/Programacion/AndroidStudio/AplicacionesMoviles-Sprint3/app/src/main/res/layout/activity_list_establecimientos.xml" value="0.1644021739130435" />
         <entry key="..\:/Users/10/OneDrive/Programacion/AndroidStudio/AplicacionesMoviles-Sprint3/app/src/main/res/layout/activity_logo_init.xml" value="0.1743659420289855" />

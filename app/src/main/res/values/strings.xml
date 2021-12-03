@@ -1,18 +1,7 @@
 <resources>
     <string name="app_name">Gestor de Establecimientos</string>
-    <string name="BotonSiguiente">Siguiente</string>
-    <string name="entrar">list_establecimientoActivity</string>
-    <string name="mostrarGeolocalizacion">geolocalizacionActivity</string>
-    <string name="mostrarMapa">mapasActivity</string>
-    <string name="tv1">registroActivity</string>
-    <string name="title_activity_establecimientos">establecimientosActivity</string>
-    <!-- Strings used for fragments for navigation -->
-    <string name="first_fragment_label">First Fragment</string>
-    <string name="second_fragment_label">Second Fragment</string>
-    <string name="next">Next</string>
-    <string name="previous">Previous</string>
-
-    <string name="hello_first_fragment">Hello first fragment</string>
-    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
-
+    <string name="nombre_establecimiento">Nombre de Establecimiento</string>
+    <string name="direccion_establecimiento">Dirección de Establecimiento</string>
+    <string name="nombre_propietario">Nombre de Propietario</string>
+    <string name="telefono">Teléfono</string>
 </resources>

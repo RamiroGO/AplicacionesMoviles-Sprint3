@@ -1,5 +1,7 @@
 package com.example.establecimientos.Models;
 
+import androidx.annotation.NonNull;
+
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 
 public class Establecimiento {
@@ -12,6 +14,9 @@ public class Establecimiento {
     public String propietario;
     public int image;
 
+    /**
+     * Constructor Manual
+     */
     public Establecimiento(String nombre, String direccion, String telefono, String propietario, int image) {
         this.nombre = nombre;
         this.direccion = direccion;
@@ -20,12 +25,17 @@ public class Establecimiento {
         this.image = image;
     }
 
-    public Establecimiento(QueryDocumentSnapshot dato) {
+    /**
+     * Convertir dato recibido en un objeto de tipo Establecimiento
+     */
+    public Establecimiento(@NonNull QueryDocumentSnapshot dato) {
         this.Id = dato.getId();
         this.nombre = dato.getString("nombre");
         this.direccion = dato.getString("direccion");
         this.telefono = dato.getString("telefono");
         this.propietario = dato.getString("propietario");
-        this.image= Integer.parseInt(dato.getString("imagen"));
+
+        String stringImg = dato.getString("imagen");
+        this.image = Integer.parseInt(stringImg);
     }
 }
