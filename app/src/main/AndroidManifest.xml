@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.establecimientos">
         <activity
+            android:name=".newEstablecimientoActivity"
+            android:exported="false" />
+        <activity
             android:name=".editEstablecimientoActivity"
             android:exported="false" />
         <activity

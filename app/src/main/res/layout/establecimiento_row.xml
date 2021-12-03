@@ -6,21 +6,16 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="40dp"
-        android:layout_height="40dp" /><![CDATA[
-    />
-
-
-
-    ]]>
+        android:layout_width="50dp"
+        android:layout_height="50dp" />
 
     <TextView
         android:id="@+id/txtNombre"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/imageView"
-        android:layout_marginStart="19dp"
-        android:layout_marginBottom="5dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="0dp"
         android:layout_toEndOf="@id/imageView"
         android:hint="Nombre" />
 
@@ -29,26 +24,28 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/txtNombre"
-        android:layout_marginStart="39dp"
+        android:layout_marginStart="80dp"
         android:layout_marginBottom="0dp"
-        android:layout_toEndOf="@+id/txtNombre"
+        android:layout_toEndOf="@+id/imageView"
         android:hint="Dirección" />
 
     <TextView
         android:id="@+id/txtPropietario"
-        android:layout_width="83dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/txtDireccion"
-        android:layout_marginStart="24dp"
-        android:layout_marginBottom="0dp"
-        android:layout_toEndOf="@id/txtDireccion"
+        android:layout_below="@+id/txtNombre"
+        android:layout_alignStart="@+id/txtNombre"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp"
         android:hint="Propietario" />
 
     <TextView
         android:id="@+id/txtTelefono"
-        android:layout_width="59dp"
-        android:layout_height="25dp"
-        android:layout_alignBottom="@+id/txtPropietario"
-        android:layout_alignParentRight="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/txtPropietario"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="0dp"
+        android:layout_toEndOf="@+id/txtPropietario"
         android:hint="Teléfono" />
 </RelativeLayout>

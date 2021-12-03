@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".editEstablecimientoActivity">
+    tools:context=".newEstablecimientoActivity">
 
     <EditText
-        android:id="@+id/editTextNombreEstablecimiento"
+        android:id="@+id/newTxtNombreEstablecimiento"
         android:layout_width="317dp"
         android:layout_height="56dp"
         android:ems="15"
@@ -20,7 +20,7 @@
         app:layout_constraintVertical_bias="0.111" />
 
     <EditText
-        android:id="@+id/editTextDireccion"
+        android:id="@+id/newTxtDireccion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="15"
@@ -29,10 +29,10 @@
         android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextNombreEstablecimiento" />
+        app:layout_constraintTop_toBottomOf="@+id/newTxtNombreEstablecimiento" />
 
     <EditText
-        android:id="@+id/editTextPersonName"
+        android:id="@+id/newTxtPropietario"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="15"
@@ -41,10 +41,10 @@
         android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextDireccion" />
+        app:layout_constraintTop_toBottomOf="@+id/newTxtDireccion" />
 
     <EditText
-        android:id="@+id/editTextPhone"
+        android:id="@+id/newTxtTelefono"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="15"
@@ -53,7 +53,7 @@
         android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextPersonName" />
+        app:layout_constraintTop_toBottomOf="@+id/newTxtPropietario" />
 
     <ImageView
         android:id="@+id/imageEstablecimiento"
@@ -62,33 +62,33 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextPhone"
+        app:layout_constraintTop_toBottomOf="@+id/newTxtTelefono"
         app:layout_constraintVertical_bias="0.217"
         app:srcCompat="@drawable/icono_negocio1" />
 
     <Button
-        android:id="@+id/btnEdit"
+        android:id="@+id/btnNew"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="btnEditClick"
-        android:text="@string/editar"
+        android:onClick="btnNewEstablecimiento"
+        android:text="@string/nuevo_establecimiento"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.224"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageEstablecimiento"
-        app:layout_constraintVertical_bias="0.526" />
+        app:layout_constraintVertical_bias="0.18" />
 
     <Button
-        android:id="@+id/btnDelete"
+        android:id="@+id/btnOut"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="btnDeleteClick"
-        android:text="@string/eliminar"
+        android:onClick="btnSalirClick"
+        android:text="@string/salir"
         android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="@+id/btnEdit"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/btnEdit"
-        app:layout_constraintTop_toTopOf="@+id/btnEdit"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnNew"
         tools:visibility="visible" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

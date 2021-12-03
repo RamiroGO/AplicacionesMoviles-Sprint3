@@ -1,9 +1,5 @@
 package com.example.establecimientos;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,12 +8,14 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.Task;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.firebase.firestore.FirebaseFirestore;
 
 public class editEstablecimientoActivity extends AppCompatActivity {
+    // Variables de Clase
     String Id;
     TextView
             Nombre,
@@ -27,11 +25,12 @@ public class editEstablecimientoActivity extends AppCompatActivity {
     ImageView ImgEstable;
 
     FirebaseFirestore db_firestore;
-
+    // Constructor del Activity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_establecimiento);
+
         // Variables Locales
         int selImagen;
 
@@ -39,11 +38,11 @@ public class editEstablecimientoActivity extends AppCompatActivity {
         db_firestore = FirebaseFirestore.getInstance();
 
         //Enlazar elementos de la View
-        Nombre = (TextView) findViewById(R.id.editTextNombreEstablecimiento);
-        Direccion = (TextView) findViewById(R.id.editTextDireccion);
-        Propietario = (TextView) findViewById(R.id.editTextPersonName);
-        Telefono = (TextView) findViewById(R.id.editTextPhone);
-        ImgEstable = (ImageView) findViewById(R.id.imageEstablecimiento);
+        Nombre = findViewById(R.id.editTextNombreEstablecimiento);
+        Direccion = findViewById(R.id.editTextDireccion);
+        Propietario = findViewById(R.id.editTextPersonName);
+        Telefono = findViewById(R.id.editTextPhone);
+        ImgEstable = findViewById(R.id.imageEstablecimiento);
 
         // Recibir valores de la anterior activity
         Nombre.setText(getIntent().getStringExtra("nombre_establecimiento"));
@@ -57,50 +56,15 @@ public class editEstablecimientoActivity extends AppCompatActivity {
         ImgEstable.setImageResource(selImagen);
     }
 
+    // Eventos de Botones
     public void btnDeleteClick(View view) {
         AlertDialog.Builder AnsUser =
                 new AlertDialog.Builder(this)
                         .setMessage("¿Desea Eliminar este Establecimiento?");
 
         AnsUser.setPositiveButton("Si", ansUserPositive());
-        AnsUser.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                dialog.dismiss();
-            }
-        });
+        AnsUser.setNegativeButton("Cancelar", (dialog, which) -> dialog.dismiss());
         AnsUser.show();
-    }
-
-    @NonNull
-    private DialogInterface.OnClickListener ansUserPositive() {
-        return new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                db_firestore.collection("Establecimientos")
-                        .document(Id)
-                        .delete()
-                        .addOnCompleteListener(
-                                new OnCompleteListener<Void>() {
-                                    @Override
-                                    public void onComplete(@NonNull Task<Void> task) {
-                                        Toast.makeText(getApplicationContext(), "Establecimiento Eliminado", Toast.LENGTH_LONG).show();
-                                        gotoListEstablecimiento();
-                                    }
-                                })
-                        .addOnFailureListener(
-                                new OnFailureListener() {
-                                    @Override
-                                    public void onFailure(@NonNull Exception e) {
-                                        Toast.makeText(
-                                                getApplicationContext(),
-                                                "No se pudo Eliminar el Establecimiento",
-                                                Toast.LENGTH_LONG).show();
-                                    }
-                                }
-                        );
-            }
-        };
     }
 
     public void btnEditClick(View view) {
@@ -114,32 +78,24 @@ public class editEstablecimientoActivity extends AppCompatActivity {
         db_firestore.collection("Establecimientos")
                 .document(Id)
                 .update(
-                        "nombre", Nombre,
-                        "direccion", Direccion,
-                        "propietario", Propietario,
-                        "telefono", Telefono)
+                        "nombre", Nombre.getText(),
+                        "direccion", Direccion.getText(),
+                        "propietario", Propietario.getText(),
+                        "telefono", Telefono.getText())
                 .addOnCompleteListener(
-                        new OnCompleteListener<Void>() {
-                            @Override
-                            public void onComplete(@NonNull Task<Void> task) {
-                                Toast.makeText(
-                                        getApplicationContext(),
-                                        "Establecimiento Actualizado",
-                                        Toast.LENGTH_LONG).show();
-                                gotoListEstablecimiento();
-                            }
+                        task -> {
+                            Toast.makeText(
+                                    getApplicationContext(),
+                                    "Establecimiento Actualizado",
+                                    Toast.LENGTH_LONG).show();
+                            gotoListEstablecimiento();
                         }
                 )
                 .addOnFailureListener(
-                        new OnFailureListener() {
-                            @Override
-                            public void onFailure(@NonNull Exception e) {
-                                Toast.makeText(
-                                        getApplicationContext(),
-                                        "Error en la Actualización del Establecimiento",
-                                        Toast.LENGTH_LONG).show();
-                            }
-                        });
+                        e -> Toast.makeText(
+                                getApplicationContext(),
+                                "Error en la Actualización del Establecimiento",
+                                Toast.LENGTH_LONG).show());
     }
 
     /**
@@ -151,4 +107,22 @@ public class editEstablecimientoActivity extends AppCompatActivity {
                 showListEstablecimientosActivity.class);
         startActivity(gotoListEstablecimiento);
     }
+    @NonNull
+    private DialogInterface.OnClickListener ansUserPositive() {
+        return (dialog, which) -> db_firestore.collection("Establecimientos")
+                .document(Id)
+                .delete()
+                .addOnCompleteListener(
+                        task -> {
+                            Toast.makeText(getApplicationContext(), "Establecimiento Eliminado", Toast.LENGTH_LONG).show();
+                            gotoListEstablecimiento();
+                        })
+                .addOnFailureListener(
+                        e -> Toast.makeText(
+                                getApplicationContext(),
+                                "No se pudo Eliminar el Establecimiento",
+                                Toast.LENGTH_LONG).show()
+                );
+    }
+
 }

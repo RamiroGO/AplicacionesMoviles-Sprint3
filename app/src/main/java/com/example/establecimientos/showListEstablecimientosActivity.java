@@ -1,8 +1,5 @@
 package com.example.establecimientos;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -10,16 +7,16 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.establecimientos.Adapters.adapter_ListEstablecimientos;
 import com.example.establecimientos.Models.Establecimiento;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
-import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class showListEstablecimientosActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
     // Variables de Clase
@@ -51,6 +48,11 @@ public class showListEstablecimientosActivity extends AppCompatActivity implemen
         getListEstablecimiento_FirestoreDatabase();
     }
 
+    public void btnNewEstablecientoClick(View view) {
+        Intent gotoNewEstablecimiento= new Intent(this, newEstablecimientoActivity.class);
+        startActivity(gotoNewEstablecimiento);
+    }
+
 
     /**
      * Evento de presionar el elemento "Establecimiento" en el ListView
@@ -72,7 +74,6 @@ public class showListEstablecimientosActivity extends AppCompatActivity implemen
         gotoEditEstablecimiento.putExtra("direcc_establecimiento",establecimientoList.get(position).direccion);
         gotoEditEstablecimiento.putExtra("nombre_propietario",establecimientoList.get(position).propietario);
         gotoEditEstablecimiento.putExtra("telefono",establecimientoList.get(position).telefono);
-        gotoEditEstablecimiento.putExtra("Id",establecimientoList.get(position).Id);
         gotoEditEstablecimiento.putExtra("image",establecimientoList.get(position).image);
         startActivity(gotoEditEstablecimiento);
     }
@@ -97,22 +98,19 @@ public class showListEstablecimientosActivity extends AppCompatActivity implemen
         db_firestore
                 .collection("Establecimientos")
                 .get()
-                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                    @Override
-                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                        if (task.isSuccessful()) {
-                            // Recibir datos de la base de datos
+                .addOnCompleteListener(task -> {
+                    if (task.isSuccessful()) {
+                        // Recibir datos de la base de datos
 
-                            for (QueryDocumentSnapshot Dato : task.getResult()) {
-                                establecimientoList.add(new Establecimiento(Dato));
-                            }
-                            setEstablecimientos_ListView();
-                        } else
-                            Toast.makeText(
-                                    showListEstablecimientosActivity.this,
-                                    "Falla en recibir datos",
-                                    Toast.LENGTH_LONG).show();
-                    }
+                        for (QueryDocumentSnapshot Dato : Objects.requireNonNull(task.getResult())) {
+                            establecimientoList.add(new Establecimiento(Dato));
+                        }
+                        setEstablecimientos_ListView();
+                    } else
+                        Toast.makeText(
+                                showListEstablecimientosActivity.this,
+                                "Falla en recibir datos",
+                                Toast.LENGTH_LONG).show();
                 });
     }
 }
