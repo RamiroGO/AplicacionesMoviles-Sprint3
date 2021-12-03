@@ -70,11 +70,12 @@ public class showListEstablecimientosActivity extends AppCompatActivity implemen
 
         // Cargar los valores del establecimiento
         // para enviarlos al otro activity y editar el establecimiento
+        gotoEditEstablecimiento.putExtra("idDocument_establecimiento",establecimientoList.get(position).getId());
         gotoEditEstablecimiento.putExtra("nombre_establecimiento",establecimientoList.get(position).nombre);
         gotoEditEstablecimiento.putExtra("direcc_establecimiento",establecimientoList.get(position).direccion);
         gotoEditEstablecimiento.putExtra("nombre_propietario",establecimientoList.get(position).propietario);
         gotoEditEstablecimiento.putExtra("telefono",establecimientoList.get(position).telefono);
-        gotoEditEstablecimiento.putExtra("image",establecimientoList.get(position).image);
+        gotoEditEstablecimiento.putExtra("imagen",establecimientoList.get(position).imagen);
         startActivity(gotoEditEstablecimiento);
     }
 
@@ -82,7 +83,7 @@ public class showListEstablecimientosActivity extends AppCompatActivity implemen
      * Usar el Adaptador para visualizar la Lista de establecimientos
      * en su correspondiente ListView
      */
-    private void setEstablecimientos_ListView() {
+    private void showListView_Establecimientos() {
         adapter_ListEstablecimientos adapter_listEstablecimientos = new adapter_ListEstablecimientos(
                 showListEstablecimientosActivity.this,
                 R.layout.establecimiento_row,
@@ -101,11 +102,10 @@ public class showListEstablecimientosActivity extends AppCompatActivity implemen
                 .addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
                         // Recibir datos de la base de datos
-
                         for (QueryDocumentSnapshot Dato : Objects.requireNonNull(task.getResult())) {
                             establecimientoList.add(new Establecimiento(Dato));
                         }
-                        setEstablecimientos_ListView();
+                        showListView_Establecimientos();
                     } else
                         Toast.makeText(
                                 showListEstablecimientosActivity.this,

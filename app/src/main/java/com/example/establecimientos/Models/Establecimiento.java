@@ -6,42 +6,55 @@ import androidx.annotation.NonNull;
 
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 
-import java.util.List;
-
 public class Establecimiento {
+    /**
+     * Variables de Clase
+     */
     // Las variables deben declararse como públicas
     // porque además de sus valores, sus nombres se usarán como variables a enviar
+    private String IdDocument;
     public String nombre;
     public String direccion;
-    public String telefono;
+    public int telefono;
     public String propietario;
-    public int image;
+    public int imagen;
 
     /**
-     * Constructor Manual
+     * Propiedades
      */
-    public Establecimiento(TextView nombre, TextView direccion, TextView telefono, TextView propietario, int image) {
-        this.nombre = nombre.getText().toString();
-        this.direccion = direccion.getText().toString();
-        this.telefono = telefono.getText().toString();
-        this.propietario = propietario.getText().toString();
-        this.image = image;
+    public String getId() {
+        return IdDocument;
     }
 
     /**
-     * Convertir dato recibido en un objeto de tipo Establecimiento
+     * Constructores
+     */
+    public Establecimiento(TextView nombre, TextView direccion, TextView telefono, TextView propietario, int imagen) {
+        this.nombre = nombre.getText().toString();
+        this.direccion = direccion.getText().toString();
+        this.telefono = Integer.valueOf(telefono.getText().toString());
+        this.propietario = propietario.getText().toString();
+        this.imagen = imagen;
+    }
+
+    /**
+     * Constructor: Convertir dato recibido en un objeto de tipo Establecimiento
      */
     public Establecimiento(@NonNull QueryDocumentSnapshot dato) {
+        this.IdDocument = dato.getId();
         this.nombre = dato.getString("nombre");
         this.direccion = dato.getString("direccion");
-        this.telefono = dato.getString("telefono");
+        try {
+            this.telefono = dato.get("telefono", Integer.class);
+        } catch (Exception e) {
+            this.telefono = Integer.valueOf(dato.get("telefono", String.class));
+        }
         this.propietario = dato.getString("propietario");
 
-        String stringImg = dato.getString("imagen");
-        if (stringImg == null) {
-            this.image = 2131165315;
-        } else {
-            this.image = Integer.parseInt(stringImg);
+        try {
+            this.imagen = dato.get("imagen", Integer.class);
+        } catch (Exception e) {
+            this.imagen = 2131165315;
         }
     }
 }
