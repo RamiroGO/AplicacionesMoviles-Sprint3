@@ -36,7 +36,7 @@ public class newEstablecimientoActivity extends AppCompatActivity {
                 Direccion,
                 Telefono,
                 Propietario,
-                R.id.imageEstablecimiento);
+                R.drawable.icono_negocio1);
 
         // Enviar datos de autenticación a la Base de Datos de Firestore
         db_firestore.collection("Establecimientos")
@@ -58,8 +58,11 @@ public class newEstablecimientoActivity extends AppCompatActivity {
                                 Toast.LENGTH_LONG).show());
     }
 
-    public void btnSalirClick(View view) {
-        startActivity(new Intent(this, showListEstablecimientosActivity.class));
+    public void btnGotoListClick(View view) {
+        startActivity(
+                new Intent(
+                        this,
+                        showListEstablecimientosActivity.class));
     }
 
     /**
