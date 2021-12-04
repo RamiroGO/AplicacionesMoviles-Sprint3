@@ -7,7 +7,8 @@
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="50dp"
-        android:layout_height="50dp" />
+        android:layout_height="50dp"
+        android:contentDescription="TODO" />
 
     <TextView
         android:id="@+id/txtNombre"
@@ -17,17 +18,17 @@
         android:layout_marginStart="5dp"
         android:layout_marginTop="0dp"
         android:layout_toEndOf="@id/imageView"
-        android:hint="Nombre" />
+        android:hint="@string/nombre" />
 
     <TextView
         android:id="@+id/txtDireccion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/txtNombre"
-        android:layout_marginStart="80dp"
+        android:layout_marginStart="120dp"
         android:layout_marginBottom="0dp"
         android:layout_toEndOf="@+id/imageView"
-        android:hint="Dirección" />
+        android:hint="@string/direccion" />
 
     <TextView
         android:id="@+id/txtPropietario"
@@ -37,7 +38,7 @@
         android:layout_alignStart="@+id/txtNombre"
         android:layout_marginStart="0dp"
         android:layout_marginTop="0dp"
-        android:hint="Propietario" />
+        android:hint="@string/propietario" />
 
     <TextView
         android:id="@+id/txtTelefono"
@@ -47,5 +48,5 @@
         android:layout_alignTop="@+id/txtPropietario"
         android:layout_marginStart="0dp"
         android:layout_marginTop="0dp"
-        android:hint="Teléfono" />
+        android:hint="@string/telefono" />
 </RelativeLayout>

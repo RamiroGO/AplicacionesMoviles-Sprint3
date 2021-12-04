@@ -26,6 +26,7 @@ public class editEstablecimientoActivity extends AppCompatActivity {
     int refImagen;
 
     FirebaseFirestore db_firestore;
+
     // Constructor del Activity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,16 +52,30 @@ public class editEstablecimientoActivity extends AppCompatActivity {
         Propietario.setText(_extras.getString("nombre_propietario"));
 
         // Convertir valor numérico a String y enviar a la View
-        Telefono.setText(String.valueOf(_extras.getInt("telefono",0)));
+        Telefono.setText(String.valueOf(_extras.getInt("telefono", 0)));
         // Recibir el Id del Establecimiento previamente seleccionado
         IdDocument_Establecimiento = _extras.getString("idDocument_establecimiento");
 
         // Poblar Imagen
-        refImagen = _extras.getInt("image", 0);
-        ImgEstable.setImageResource(refImagen);
+        refImagen = _extras.getInt("imagen", R.drawable.icono_negocio1);
+        // Si la referencia Id de la imagen no existe
+        // poner una imagen "R.drawable.icono_negocio1" por defecto.
+        try {
+            ImgEstable.setImageResource(refImagen);
+        } catch (Exception e) {
+            refImagen = R.drawable.icono_negocio1;
+            ImgEstable.setImageResource(refImagen);
+        }
     }
 
     // Eventos de Botones
+    public void btnGotoListClick(View view) {
+        startActivity(
+                new Intent(
+                        this,
+                        showListEstablecimientosActivity.class));
+    }
+
     public void btnDeleteClick(View view) {
         AlertDialog.Builder AnsUser =
                 new AlertDialog.Builder(this)
@@ -86,7 +101,7 @@ public class editEstablecimientoActivity extends AppCompatActivity {
                         "direccion", Direccion.getText().toString(),
                         "propietario", Propietario.getText().toString(),
                         "telefono", Integer.valueOf(Telefono.getText().toString()),
-                        "imagen",  refImagen)
+                        "imagen", refImagen)
                 .addOnCompleteListener(
                         task -> {
                             Toast.makeText(
@@ -112,6 +127,10 @@ public class editEstablecimientoActivity extends AppCompatActivity {
                 showListEstablecimientosActivity.class);
         startActivity(gotoListEstablecimiento);
     }
+
+    /**
+     * Eliminar el Establecimiento si el usuario presiona Si.
+     */
     @NonNull
     private DialogInterface.OnClickListener ansUserPositive() {
         return (dialog, which) -> db_firestore.collection("Establecimientos")

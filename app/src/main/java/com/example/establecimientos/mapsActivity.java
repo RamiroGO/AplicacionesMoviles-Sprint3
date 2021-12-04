@@ -14,7 +14,6 @@ public class mapsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_mapas);
     }
     public void click_gotoListEstablecimientos(View view){
-        Intent gotoListEstablecimiento = new Intent(this, showListEstablecimientosActivity.class);
-        startActivity(gotoListEstablecimiento);
+        startActivity(new Intent(this, showListEstablecimientosActivity.class));
     }
 }

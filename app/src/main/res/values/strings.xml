@@ -3,9 +3,13 @@
     <string name="nombre_establecimiento">Nombre de Establecimiento</string>
     <string name="direccion_establecimiento">Dirección de Establecimiento</string>
     <string name="nombre_propietario">Nombre de Propietario</string>
-    <string name="telefono">Teléfono</string>
     <string name="nuevo_establecimiento">Nuevo Establecimiento</string>
     <string name="editar">Editar</string>
     <string name="eliminar">Eliminar</string>
     <string name="salir">Salir</string>
+    <string name="ver_mapa_general">Ver Mapa General</string>
+    <string name="nombre">Nombre</string>
+    <string name="direccion">Dirección</string>
+    <string name="propietario">Propietario</string>
+    <string name="telefono">Teléfono</string>
 </resources>

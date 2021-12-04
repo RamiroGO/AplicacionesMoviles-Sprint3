@@ -48,15 +48,41 @@ public class showListEstablecimientosActivity extends AppCompatActivity implemen
         getListEstablecimiento_FirestoreDatabase();
     }
 
+    // Evento de Botones
+    /**
+     * Botón para ir a un nuevo activity, donde se podrá crear un nuevo establecimiento.
+     * */
     public void btnNewEstablecientoClick(View view) {
-        Intent gotoNewEstablecimiento= new Intent(this, newEstablecimientoActivity.class);
-        startActivity(gotoNewEstablecimiento);
+        startActivity(
+                new Intent(
+                        showListEstablecimientosActivity.this,
+                        newEstablecimientoActivity.class));
+    }
+
+    /**
+     * Regresar al Menú de acceso de Usuario
+     */
+    public void btnLogOutClick(View view) {
+        startActivity(
+                new Intent(
+                        showListEstablecimientosActivity.this,
+                        userLoginActivity.class));
+    }
+
+    /**
+     * Ir al Visualizador del Mapa de todos los Establecimientos
+     */
+    public void btnMaps(View view) {
+        startActivity(
+                new Intent(
+                        showListEstablecimientosActivity.this,
+                        mapsActivity.class));
     }
 
 
     /**
      * Evento de presionar el elemento "Establecimiento" en el ListView
-     * */
+     */
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
         // Mostrar la numeración del elemento clickeado
@@ -66,16 +92,18 @@ public class showListEstablecimientosActivity extends AppCompatActivity implemen
                 Toast.LENGTH_SHORT).show();
 
         // Ir al Activity para editar el establecimiento seleccionado:
-        Intent gotoEditEstablecimiento= new Intent(showListEstablecimientosActivity.this,editEstablecimientoActivity.class);
+        Intent gotoEditEstablecimiento = new Intent(
+                showListEstablecimientosActivity.this,
+                editEstablecimientoActivity.class);
 
         // Cargar los valores del establecimiento
         // para enviarlos al otro activity y editar el establecimiento
-        gotoEditEstablecimiento.putExtra("idDocument_establecimiento",establecimientoList.get(position).getId());
-        gotoEditEstablecimiento.putExtra("nombre_establecimiento",establecimientoList.get(position).nombre);
-        gotoEditEstablecimiento.putExtra("direcc_establecimiento",establecimientoList.get(position).direccion);
-        gotoEditEstablecimiento.putExtra("nombre_propietario",establecimientoList.get(position).propietario);
-        gotoEditEstablecimiento.putExtra("telefono",establecimientoList.get(position).telefono);
-        gotoEditEstablecimiento.putExtra("imagen",establecimientoList.get(position).imagen);
+        gotoEditEstablecimiento.putExtra("idDocument_establecimiento", establecimientoList.get(position).IdDocument());
+        gotoEditEstablecimiento.putExtra("nombre_establecimiento", establecimientoList.get(position).nombre);
+        gotoEditEstablecimiento.putExtra("direcc_establecimiento", establecimientoList.get(position).direccion);
+        gotoEditEstablecimiento.putExtra("nombre_propietario", establecimientoList.get(position).propietario);
+        gotoEditEstablecimiento.putExtra("telefono", establecimientoList.get(position).telefono);
+        gotoEditEstablecimiento.putExtra("imagen", establecimientoList.get(position).imagen);
         startActivity(gotoEditEstablecimiento);
     }
 
